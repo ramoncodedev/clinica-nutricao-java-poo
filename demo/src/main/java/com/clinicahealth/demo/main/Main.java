@@ -1,6 +1,7 @@
 package com.clinicahealth.demo.main;
 
-import com.clinicahealth.demo.model.Paciente;
+
+import com.clinicahealth.demo.service.AgendamentoService;
 import com.clinicahealth.demo.service.PacienteService;
 
 import java.util.Scanner;
@@ -10,6 +11,9 @@ public class Main {
     public static void main(String[] args) {
 
         PacienteService paciente = new PacienteService();
+
+
+        AgendamentoService agendamento = new AgendamentoService();
         Scanner leitor = new Scanner(System.in);
 
         boolean executando = true;
@@ -18,6 +22,7 @@ public class Main {
             System.out.println("\n ----- CLINICA HEALTH ----");
             System.out.println("1. Cadastrar Paciente");
             System.out.println("2. Listar Pacientes");
+            System.out.println("3. Agendamento");
             System.out.println("0. Sair");
             System.out.println("Escolha uma opção: ");
 
@@ -28,9 +33,12 @@ public class Main {
                     paciente.executarProcesso(leitor);
                     break;
                 case 2:
-                    paciente.exibirTodos();
+                    paciente.listarTodos();
                     break;
-                case 0:
+                case 3:
+                    agendamento.agendar();
+                    break;
+                    case 0:
                     executando = false;
                     break;
                 default:
@@ -39,6 +47,7 @@ public class Main {
 
         }
         leitor.close();
+
 
     }
 }

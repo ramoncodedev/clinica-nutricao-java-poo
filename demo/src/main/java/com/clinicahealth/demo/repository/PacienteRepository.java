@@ -18,5 +18,12 @@ public class PacienteRepository {
         return bancoDeDados;
     }
 
+    public void buscarPacienteNome(Paciente paciente){
+        for (Paciente bancoDeDado : bancoDeDados) {
+
+        }
+
+    }
+
 
 }

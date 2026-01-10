@@ -3,6 +3,7 @@ package com.clinicahealth.demo.service;
 import com.clinicahealth.demo.model.Paciente;
 import com.clinicahealth.demo.repository.PacienteRepository;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class PacienteService {
@@ -47,11 +48,34 @@ public class PacienteService {
 
         repository.salvar(novoPaciente);
 
-        System.out.println("Paciente " + nome + "Salvo com sucesso");
+        System.out.println("Paciente " + nome + " Salvo com sucesso");
 
     }
 
-    public void exibirTodos(){
+    public void listarTodos(){
+        List<Paciente> bancoDeDados = repository.listarTodos();
+
+        if (bancoDeDados.isEmpty()){
+            System.out.println("Nenhum paciente cadastrado até o momento");
+            return;
+
+        }
+
+        System.out.println("Lista de Pacientes cadastrado:");
+
+        for (Paciente p : bancoDeDados){
+            System.out.println("Nome: " + p.getNome() + " | CPF: " + p.getCpf());
+        }
 
     }
+
+
+
+
+
+
 }
+
+
+// for para verificar minha lista
+// apos isso sé não tiver vazia buscar pelo nome
