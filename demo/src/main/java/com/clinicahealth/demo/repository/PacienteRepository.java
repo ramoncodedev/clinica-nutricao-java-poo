@@ -18,11 +18,13 @@ public class PacienteRepository {
         return bancoDeDados;
     }
 
-    public void buscarPacienteNome(Paciente paciente){
-        for (Paciente bancoDeDado : bancoDeDados) {
-
+    public Paciente buscarPorCpf(String cpf){
+        for (Paciente p : bancoDeDados){
+            if (p.getCpf().equals(cpf)){
+                return p;
+            }
         }
-
+        return null;
     }
 
 

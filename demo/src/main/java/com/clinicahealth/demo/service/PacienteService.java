@@ -52,12 +52,12 @@ public class PacienteService {
 
     }
 
-    public void listarTodos(){
+    public List<Paciente> listarTodos(){
         List<Paciente> bancoDeDados = repository.listarTodos();
 
         if (bancoDeDados.isEmpty()){
             System.out.println("Nenhum paciente cadastrado até o momento");
-            return;
+            return bancoDeDados;
 
         }
 
@@ -67,6 +67,12 @@ public class PacienteService {
             System.out.println("Nome: " + p.getNome() + " | CPF: " + p.getCpf());
         }
 
+        return bancoDeDados;
+
+    }
+
+    public Paciente buscarPorCpf(String cpf){
+        return repository.buscarPorCpf(cpf);
     }
 
 
